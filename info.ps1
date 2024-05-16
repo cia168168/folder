@@ -1,3 +1,11 @@
+# Function to format the size in GB
+function Format-SizeInGB {
+    param (
+        [int64]$SizeInBytes
+    )
+    return [math]::round($SizeInBytes / 1GB, 2)
+}
+
 # Get Graphics Card Information
 $gpu = Get-WmiObject Win32_VideoController | Select-Object Name, AdapterRAM
 
@@ -16,63 +24,23 @@ $motherboard = Get-WmiObject Win32_BaseBoard | Select-Object Manufacturer, Produ
 # Get BIOS Information
 $bios = Get-WmiObject Win32_BIOS | Select-Object Manufacturer, Name, Version, SerialNumber
 
-# Display the gathered information
-Write-Host "PC Hardware Information:`n"
-
-Write-Host "Graphics Card(s):"
-foreach ($g in $gpu) {
-    $gpuMemoryGB = [math]::round($g.AdapterRAM / 1GB, 2)
-    Write-Host "  - Model: $($g.Name), Memory: $gpuMemoryGB GB"
-}
-Write-Host ""
-
-Write-Host "Disk Drives:"
-foreach ($disk in $diskDrives) {
-    $diskSizeGB = [math]::round($disk.Size / 1GB, 2)
-    Write-Host "  - Model: $($disk.Model), Size: $diskSizeGB GB"
-}
-Write-Host ""
-
-$totalRamGB = [math]::round($ram.Sum / 1GB, 2)
-Write-Host "RAM: $totalRamGB GB"
-Write-Host ""
-
-Write-Host "Processor:"
-Write-Host "  - Model: $($cpu.Name)"
-Write-Host "  - Cores: $($cpu.NumberOfCores)"
-Write-Host "  - Logical Processors: $($cpu.NumberOfLogicalProcessors)"
-Write-Host ""
-
-Write-Host "Motherboard:"
-Write-Host "  - Manufacturer: $($motherboard.Manufacturer)"
-Write-Host "  - Model: $($motherboard.Product)"
-Write-Host ""
-
-Write-Host "BIOS:"
-Write-Host "  - Manufacturer: $($bios.Manufacturer)"
-Write-Host "  - Name: $($bios.Name)"
-Write-Host "  - Version: $($bios.Version)"
-Write-Host "  - Serial Number: $($bios.SerialNumber)"
-Write-Host ""
-
-# To save the output to a text file
-$outputFile = "PC_Hardware_Info.txt"
+# Prepare the gathered information
 $output = @"
 PC Hardware Information:
 
 Graphics Card(s):
-$(foreach ($g in $gpu) { 
-    $gpuMemoryGB = [math]::round($g.AdapterRAM / 1GB, 2)
+$(foreach ($g in $gpu) {
+    $gpuMemoryGB = Format-SizeInGB -SizeInBytes $g.AdapterRAM
     "  - Model: $($g.Name), Memory: $gpuMemoryGB GB"
 })
 
 Disk Drives:
 $(foreach ($disk in $diskDrives) {
-    $diskSizeGB = [math]::round($disk.Size / 1GB, 2)
+    $diskSizeGB = Format-SizeInGB -SizeInBytes $disk.Size
     "  - Model: $($disk.Model), Size: $diskSizeGB GB"
 })
 
-RAM: $totalRamGB GB
+RAM: $([math]::round($ram.Sum / 1GB, 2)) GB
 
 Processor:
   - Model: $($cpu.Name)
@@ -90,6 +58,9 @@ BIOS:
   - Serial Number: $($bios.SerialNumber)
 "@
 
+# Save the output to a text file
+$outputFile = "PC_Hardware_Info.txt"
 $output | Out-File -FilePath $outputFile
 
 Write-Host "Hardware information has been saved to $outputFile"
+
